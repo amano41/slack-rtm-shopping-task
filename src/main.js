@@ -10,8 +10,22 @@ function doPost(e) {
 
     var text = e.parameter.text;
 
+    // 改行を含む場合はチャット発言とみなして終了
+    if (text.indexOf('\n') !== -1) {
+      Logger.log("Text is consisted of multiple lines.")
+      Logger.log(text)
+      return;
+    }
+
     // タスクから URL を抽出
     var [task, url] = parseTask(text);
+
+    // 文字数が 15 文字よりも多ければチャット発言とみなして終了
+    if (task.length > 15) {
+      Logger.log("Task is longer than 15 characters.")
+      Logger.log(task)
+      return;
+    }
 
     // 買い物タスクを追加
     addTask(task, url);
