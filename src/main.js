@@ -61,7 +61,8 @@ function addTask(task, url) {
 
   var body = "t: " + task + "\n"
            + "l: Shopping\n"
-           + "s: @life\n";
+           + "s: @life\n"
+           + "a: Today\n";
 
   if (url != null) {
     body += "u:" + url + "\n";
