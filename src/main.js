@@ -64,7 +64,7 @@ function addTask(task, url) {
            + "s: life\n";
 
   if (url != null) {
-    body += "u: " + url + "\n";
+    body += "u:" + url + "\n";
   }
 
   Logger.log("To: " + recipient);
