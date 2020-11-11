@@ -42,13 +42,31 @@ function parseTask(text) {
   var match = text.match(pattern);
   if (match) {
     task = text.replace(pattern, "").trim();
-    url = match[1];
+    url = formatURL(match[1]);
   }
 
   Logger.log("Task: " + task);
   Logger.log("URL: " + url);
 
   return [task, url];
+}
+
+
+function formatURL(url) {
+
+  if (!url) {
+    return url;
+  }
+
+  if (url.match(/amazon.co.jp/)) {
+    var pattern = /(dp|gp\/product)\/([a-zA-Z0-9]+)/;
+    var match = url.match(pattern);
+    if (match) {
+      return "https://www.amazon.co.jp/dp/" + match[2];
+    }
+  }
+
+  return url;
 }
 
 
