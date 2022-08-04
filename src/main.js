@@ -77,9 +77,9 @@ function addTask(task, url) {
 
   var subject = "買い物：" + task;
 
-  var body = "t: " + task + "\n"
-           + "l: Shopping\n"
-           + "s: @life\n"
+  var body = "t: " + subject + "\n"
+           + "l: Action\n"
+           + "s: life shopping\n"
            + "a: Today\n";
 
   if (url != null) {
